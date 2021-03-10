@@ -21,7 +21,9 @@ PubSubClient mqttclient(espClient);
 
 static uint8_t credentials[] = {0x21, 0x07, 0x06, 0x05, 0x04, 0x03, 0x02, 0x01, 0xb8, 0x22, 0x00, 0x00, 0x00, 0x00, 0x00};
 static uint8_t enableRealTimeData[] = {0x0B, 0x01, 0x00, 0x00, 0x00, 0x00};
-static uint8_t unitCelsius[] = {0x02, 0x00, 0x00, 0x00, 0x00, 0x00};
+/* Removing delivered Celsius code to swap Fahrenheit
+static uint8_t unitCelsius[] = {0x02, 0x00, 0x00, 0x00, 0x00, 0x00}; */
+static uint8_t unitFahrenheit[] = {0x02, 0x01, 0x00, 0x00, 0x00, 0x00};
 static uint8_t batteryLevel[] = {0x08, 0x24, 0x00, 0x00, 0x00, 0x00};
 
 //Device
@@ -246,8 +248,8 @@ bool connectToBLEServer(BLEAddress pAddress)
   ESP_LOGI("BBQ", " - Found our SettingsData characteristic");
   ESP_LOGI("BBQ", " - enableRealTimeData");
   pSettingsCharacteristic->writeValue((uint8_t *)enableRealTimeData, sizeof(enableRealTimeData), true);
-  ESP_LOGI("BBQ", " - unitCelsius");
-  pSettingsCharacteristic->writeValue((uint8_t *)unitCelsius, sizeof(unitCelsius), true);
+  ESP_LOGI("BBQ", " - unitFahrenheit");
+  pSettingsCharacteristic->writeValue((uint8_t *)unitFahrenheit, sizeof(unitFahrenheit), true);
 
   ESP_LOGI("BBQ", " - ADD notifyCallback");
   pRemoteCharacteristic->registerForNotify(notifyCallback);
