@@ -15,11 +15,16 @@ rename the `credentials.example.h` to `credentials.h` and edit it to your needs
 * Adapts amount of channels to connected thermometer
 * Should work with most ESP32 boards available
 * Should work with iBBQ based Bluetooth BBQ thermometers with up to 8 channels
-* Publish temperature (Fahrenheit) as MQTT Topics
+* Sets monitor to Celsius
+* Publish temperature as MQTT Topics
 * Publish battery level as MQTT Topic
 * Battery status according to (https://github.com/sworisbreathing/go-ibbq/issues/2#issuecomment-650725433)[https://github.com/sworisbreathing/go-ibbq/issues/2#issuecomment-650725433]
 
 ## ToDO
+
+* Updated published probe data to Fahrenheit. Currently still transmitting in Celsius
+* Reset/clear out target temperature
+* Add MQTT input handling to set target temperature via MQTT / Home Assistant
 
 ## Protocol description
 (https://gist.github.com/uucidl/b9c60b6d36d8080d085a8e3310621d64)
