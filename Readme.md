@@ -11,19 +11,14 @@ rename the `credentials.example.h` to `credentials.h` and edit it to your needs
 
 ## Features
 
-* Automatically connects to iBBQ Bluetooth BBQ thermometers (tested with IBT-6X)
-* Adapts amount of channels to connected thermometer
-* Should work with most ESP32 boards available
-* Should work with iBBQ based Bluetooth BBQ thermometers with up to 8 channels
-* Sets monitor to Celsius
-* Publish temperature as MQTT Topics
-* Publish battery level as MQTT Topic
-* Battery status according to (https://github.com/sworisbreathing/go-ibbq/issues/2#issuecomment-650725433)[https://github.com/sworisbreathing/go-ibbq/issues/2#issuecomment-650725433]
+Fork of runningtoy's InkBird_BLE2MQTT project (https://github.com/runningtoy/InkBird_BLE2MQTT) modified to support Fahrenheit temperatures.
+
+Changes include:
+* Sets BLE monitor to Fahrenheit
+* Calculate Fahrenheit temperature prior to publishing as MQTT Topics
 
 ## ToDO
 
-* Updated published probe data to Fahrenheit. Currently still transmitting in Celsius
-* Reset/clear out target temperature
 * Add MQTT input handling to set target temperature via MQTT / Home Assistant
 
 ## Protocol description
