@@ -107,7 +107,7 @@ static void notifyCallback(
   for (int i = 0; i < length; i += 2)
   {
     uint16_t val = littleEndianInt(&pData[i]);
-    float temp = val / 10;
+    float temp = ((val / 10) * 1.8) + 32;
     ESP_LOGI("BBQ", "Probe %d has value %f", probeId, temp);
     if(((int)temp)<PROBEERRORVALUE)
     {
